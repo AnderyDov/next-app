@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Link from 'next/link';
 import { useState } from 'react';
 import { Htag, Button, P, Rate } from '../components';
 import { IMenu } from '../interfaces/menu.interface';
@@ -7,11 +8,13 @@ import withLauout from '../layout/Layout';
 
 function Home({ menu }: HomeProps) {
     const [rate, setRate] = useState<number>(4);
-    console.log(menu);
+    const arr = menu.flatMap((m) => m.pages).map((p) => '/cources/' + p.alias);
+    console.log(arr);
 
     return (
         <>
             <Htag tag='h3'>HELLO WORLD</Htag>
+            <hr />
             <Button onClick={() => alert('work')} appearens='primary'>
                 Кнопка
             </Button>
@@ -24,7 +27,7 @@ function Home({ menu }: HomeProps) {
                 {menu.map((el) => {
                     return (
                         <li key={el._id.secondCategory}>
-                            {el._id.secondCategory}
+                            <Link href='/cources'>{el._id.secondCategory}</Link>{' '}
                         </li>
                     );
                 })}
