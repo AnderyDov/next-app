@@ -8,8 +8,6 @@ import withLauout from '../layout/Layout';
 
 function Home({ menu }: HomeProps) {
     const [rate, setRate] = useState<number>(4);
-    const arr = menu.flatMap((m) => m.pages).map((p) => '/cources/' + p.alias);
-    console.log(arr);
 
     return (
         <>

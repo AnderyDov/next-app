@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
-import { Htag } from '../../components';
 import { IMenu } from '../../interfaces/menu.interface';
 import { IPageModel } from '../../interfaces/page.interface';
 import { IProductModel } from '../../interfaces/propduct.interface';
@@ -12,7 +12,15 @@ const firstCategory = 0;
 function Cources({ menu, page, products }: CourcesProps) {
     return (
         <>
-            <Htag tag='h1'>{products && products.length}</Htag>
+            <h1>{page.category}</h1>
+            <Link href='/'>Home</Link>
+            <hr />
+            <hr />
+            <ul>
+                {products.map((p) => (
+                    <li key={p.title}>{p.title}</li>
+                ))}
+            </ul>
         </>
     );
 }
@@ -60,7 +68,7 @@ export const getStaticProps: GetStaticProps<CourcesProps> = async ({
     );
 
     const { data: products } = await axios.post<IProductModel[]>(
-        process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find' + params.alias,
+        process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find',
         {
             category: page.category,
             limit: 10,
