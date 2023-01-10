@@ -5,17 +5,15 @@ import { ParsedUrlQuery } from 'querystring';
 import { IMenu } from '../../interfaces/menu.interface';
 import { IPageModel } from '../../interfaces/page.interface';
 import { IProductModel } from '../../interfaces/propduct.interface';
-import withLauout from '../../layout/Layout';
+import withLayout from '../../layout/Layout';
 
 const firstCategory = 0;
 
-function Cources({ menu, page, products }: CourcesProps) {
+function Cources({ page, products }: CourcesProps) {
     return (
         <>
             <h1>{page.category}</h1>
             <Link href='/'>Home</Link>
-            <hr />
-            <hr />
             <ul>
                 {products.map((p) => (
                     <li key={p.title}>{p.title}</li>
@@ -25,19 +23,16 @@ function Cources({ menu, page, products }: CourcesProps) {
     );
 }
 
-export default withLauout(Cources);
+export default withLayout(Cources);
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const { data: menu } = await axios.post<IMenu[]>(
         process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-        {
-            firstCategory,
-        },
+        { firstCategory },
     );
     const paths = menu
         .flatMap((m) => m.pages)
         .map((p) => '/cources/' + p.alias);
-    console.log(paths);
 
     return {
         paths: paths,
@@ -56,9 +51,7 @@ export const getStaticProps: GetStaticProps<CourcesProps> = async ({
 
     const { data: menu } = await axios.post<IMenu[]>(
         process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-        {
-            firstCategory,
-        },
+        { firstCategory },
     );
 
     const { data: page } = await axios.get<IPageModel>(

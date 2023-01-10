@@ -16,7 +16,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
     );
 }
 
-export default function withLauout<T extends Record<string, unknown>>(
+export default function withLayout<T extends Record<string, unknown>>(
     Component: FunctionComponent<T>,
 ) {
     return function withLauoutComponent(props: T): JSX.Element {

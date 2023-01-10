@@ -12,6 +12,7 @@ function Home({ menu }: HomeProps) {
     return (
         <>
             <Htag tag='h3'>HELLO WORLD</Htag>
+            <Link href='/cources/excel'>EXCEL</Link>
             <hr />
             <Button onClick={() => alert('work')} appearens='primary'>
                 Кнопка
