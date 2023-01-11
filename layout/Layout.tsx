@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import AppContextProvider, { IContext } from '../context/app.context';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import styles from './Layout.module.css';
@@ -16,14 +17,19 @@ function Layout({ children }: LayoutProps): JSX.Element {
     );
 }
 
-export default function withLayout<T extends Record<string, unknown>>(
-    Component: FunctionComponent<T>,
-) {
+export default function withLayout<
+    T extends Record<string, unknown> & IContext,
+>(Component: FunctionComponent<T>) {
     return function withLauoutComponent(props: T): JSX.Element {
         return (
-            <Layout>
-                <Component {...props} />
-            </Layout>
+            <AppContextProvider
+                menu={props.menu}
+                firstCategory={props.firstCategory}
+            >
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            </AppContextProvider>
         );
     };
 }
