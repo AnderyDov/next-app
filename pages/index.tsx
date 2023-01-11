@@ -3,10 +3,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Htag, Button, P, Rate } from '../components';
 import { IMenu } from '../interfaces/menu.interface';
-import { IPageModel } from '../interfaces/page.interface';
 import withLauout from '../layout/Layout';
 
-function Home({ menu }: HomeProps) {
+function Home() {
     const [rate, setRate] = useState<number>(4);
 
     return (
@@ -22,15 +21,6 @@ function Home({ menu }: HomeProps) {
             </Button>
             <P size='l'>paragraf example</P>
             <Rate isEditadle={true} rate={rate} setRate={setRate} />
-            <ul>
-                {menu.map((el) => {
-                    return (
-                        <li key={el._id.secondCategory}>
-                            <Link href='/cources'>{el._id.secondCategory}</Link>{' '}
-                        </li>
-                    );
-                })}
-            </ul>
         </>
     );
 }
@@ -54,9 +44,3 @@ export const getStaticProps = async () => {
         },
     };
 };
-
-interface HomeProps extends Record<string, unknown> {
-    menu: IMenu[];
-    firstCategory: number;
-    page: IPageModel;
-}

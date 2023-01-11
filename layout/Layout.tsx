@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react';
-import AppContextProvider, { IContext } from '../context/app.context';
+import AppContextProvider, {
+    AppContext,
+    IContext,
+} from '../context/app.context';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import styles from './Layout.module.css';

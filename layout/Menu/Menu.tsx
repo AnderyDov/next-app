@@ -1,19 +1,13 @@
-import Link from 'next/link';
 import { useContext } from 'react';
 import { AppContext } from '../../context/app.context';
 
 export default function Menu(): JSX.Element {
     const { menu } = useContext(AppContext);
-
     return (
         <ul>
-            {menu.map((el) => {
-                return (
-                    <li key={el._id.secondCategory}>
-                        <Link href='/cources'>{el._id.secondCategory}</Link>{' '}
-                    </li>
-                );
-            })}
+            {menu.map((m) => (
+                <li key={m._id.secondCategory}>{m._id.secondCategory}</li>
+            ))}
         </ul>
     );
 }
