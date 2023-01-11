@@ -6,16 +6,16 @@
 
 NEXT_PUBLIC_DOMAIN= <корневой путь для api>
 
-1.  получение двнных меню\n
-    method: POST\n
-    path : '/api/top-page/find'\n
-    body : {"firsCategory": number}\n
+1.  получение двнных меню;
+    method: POST;
+    path : '/api/top-page/find';
+    body : {"firsCategory": number};
 
-2.  получение данных страницы\n
-    method: GET\n
-    path : '/api/top-page/byAlias/' + params.alias\n
+2.  получение данных страницы;
+    method: GET;
+    path : '/api/top-page/byAlias/' + params.alias;
 
-3.  получение данных товара\n
-    method: POST\n
-    path : '/api/product/find'\n
-    bode : {"page": string, limit: number}\n
+3.  получение данных товара;
+    method: POST;
+    path : '/api/product/find';
+    bode : {"page": string, limit: number};
