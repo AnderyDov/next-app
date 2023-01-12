@@ -1,0 +1,8 @@
+.firstLevel {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    font-size: 18px;
+}
