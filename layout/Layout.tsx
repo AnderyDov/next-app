@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import AppContextProvider, { IContext } from '../context/app.context';
+import { IContext } from '../context/app.context';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import styles from './Layout.module.css';
@@ -22,14 +22,9 @@ export default function withLayout<
 >(Component: FunctionComponent<T>) {
     return function withLauoutComponent(props: T): JSX.Element {
         return (
-            <AppContextProvider
-                menu={props.menu}
-                firstCategory={props.firstCategory}
-            >
-                <Layout>
-                    <Component {...props} />
-                </Layout>
-            </AppContextProvider>
+            <Layout>
+                <Component {...props} />
+            </Layout>
         );
     };
 }

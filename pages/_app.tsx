@@ -1,10 +1,14 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import AppContextProvider from '../context/app.context';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
     return (
-        <>
+        <AppContextProvider
+            menu={pageProps.menu}
+            firstCategory={pageProps.firstCategory}
+        >
             <Head>
                 <title>Create Next App</title>
                 <meta
@@ -18,6 +22,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Component {...pageProps} />
-        </>
+        </AppContextProvider>
     );
 }
