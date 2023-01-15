@@ -10,7 +10,8 @@ export interface IMenu {
     _id: {
         secondCategory: string;
     };
-    pages: IPage;
+    isOpened?: boolean;
+    pages: IPage[];
 }
 export interface IFirstLevelMenu {
     route: string;

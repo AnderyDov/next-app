@@ -37,8 +37,12 @@
     margin-bottom: 20px;
 }
 .thridLevelBlock {
+    display: none;
     padding-left: 20px;
     border-left: 1px solid #dfdfdf;
+}
+.thridLevelBlockOpen {
+    display: block;
 }
 .thirdLevel {
     margin-bottom: 10px;
