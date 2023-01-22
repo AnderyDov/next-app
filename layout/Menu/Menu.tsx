@@ -29,7 +29,8 @@ export default function Menu(): JSX.Element {
                 {firstLevelMenu.map((firstLevelItem: IFirstLevelMenu) => {
                     return (
                         <div key={firstLevelItem.route}>
-                            <div
+                            <Link
+                                href={'/' + firstLevelItem.route}
                                 className={cn(styles.firstLevel, {
                                     [styles.firstLevelActive]:
                                         firstLevelItem.id === firstCategory,
@@ -37,7 +38,7 @@ export default function Menu(): JSX.Element {
                             >
                                 {firstLevelItem.icons}
                                 <span>{firstLevelItem.name}</span>
-                            </div>
+                            </Link>
                             {firstLevelItem.id === firstCategory &&
                                 buildSecondLevel(firstLevelItem)}
                         </div>
