@@ -1,23 +1,20 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { IMenu } from '../../interfaces/menu.interface';
 import { IPageModel, TopLevelCategory } from '../../interfaces/page.interface';
 import { IProductModel } from '../../interfaces/propduct.interface';
 import withLayout from '../../layout/Layout';
+import { TopPageComponent } from '../../page-components';
 
-function Cources({ page, products }: CourcesProps) {
+function Cources({ page, products, firstCategory }: CourcesProps) {
     return (
-        <>
-            <h1>{page && page.category}</h1>
-            <Link href='/'>Home</Link>
-            <ul>
-                {products &&
-                    products.map((p) => <li key={p.title}>{p.title}</li>)}
-            </ul>
-        </>
+        <TopPageComponent
+            page={page}
+            products={products}
+            firstCategory={firstCategory}
+        />
     );
 }
 

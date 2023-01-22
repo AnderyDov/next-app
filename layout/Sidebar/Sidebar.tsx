@@ -8,7 +8,9 @@ import cn from 'classnames';
 export default function Sidebar({ className, ...props }: SidebarProps) {
     return (
         <div className={cn(className, styles.sidebar, {})} {...props}>
-            <Logo className={styles.logo} />
+            <Link href='/'>
+                <Logo className={styles.logo} />
+            </Link>
             <Link href='/search'>
                 <h2>Search</h2>
             </Link>

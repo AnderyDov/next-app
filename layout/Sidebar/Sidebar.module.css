@@ -6,3 +6,6 @@
 .logo {
     margin-top: 34px;
 }
+.logo:hover {
+    fill: var(--primary-hover);
+}

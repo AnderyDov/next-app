@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import withLayout from '../../layout/Layout';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
@@ -14,7 +13,6 @@ function Type() {
                     )?.name
                 }
             </h2>
-            <Link href='/'>Home</Link>
         </div>
     );
 }
