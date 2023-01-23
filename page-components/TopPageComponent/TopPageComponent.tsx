@@ -1,5 +1,7 @@
-import Link from 'next/link';
+import { Cart, Htag } from '../../components';
+import { Tag } from '../../components';
 import { TopPageComponent } from './TopPageComponent.props';
+import styles from './TopPageComponent.module.css';
 
 export function TopPageComponent({
     firstCategory,
@@ -7,13 +9,32 @@ export function TopPageComponent({
     products,
 }: TopPageComponent): JSX.Element {
     return (
-        <>
-            <h1>{page && page.category}</h1>
-            <Link href='/'>Home</Link>
-            <ul>
+        <div className={styles.wrapper}>
+            <div className={styles.title}>
+                <Htag tag='h1'>{page.title}</Htag>
+                {products && (
+                    <Tag color='grey' size='m'>
+                        {products.length}
+                    </Tag>
+                )}
+                <span>Сортировка</span>
+            </div>
+            <div>
                 {products &&
-                    products.map((p) => <li key={p.title}>{p.title}</li>)}
-            </ul>
-        </>
+                    products.map((el) => <div key={el._id}>{el.title}</div>)}
+            </div>
+            <div className={styles.hhTitle}>
+                <Htag tag='h2'>Вакансии - </Htag>
+                <Tag color='red' size='m'>
+                    hh.ru
+                </Tag>
+            </div>
+            <div className={styles.hh}>
+                <Cart className={styles.hhCount}>
+                    <div className={styles.hhStateTitle}>Всего вакансий</div>
+                    <div className={styles.hhStateCount}>{page.hh.count}</div>
+                </Cart>
+            </div>
+        </div>
     );
 }
