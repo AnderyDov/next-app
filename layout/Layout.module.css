@@ -35,6 +35,6 @@
         display: block;
     }
     .sidebar {
-        display: none;
+        display: none !important;
     }
 }
