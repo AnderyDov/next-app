@@ -3,9 +3,6 @@
     align-content: start;
     gap: 20px;
 }
-/* .logo {
-    margin-top: 34px;
-} */
 .logo:hover {
     fill: var(--primary-hover);
 }
