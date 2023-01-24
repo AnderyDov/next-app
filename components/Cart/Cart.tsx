@@ -10,7 +10,7 @@ export function Cart({
 }: CartProps): JSX.Element {
     return (
         <div
-            className={cn(className, {
+            className={cn(styles.cart, className, {
                 [styles.blue]: color === 'blue',
             })}
             {...props}

@@ -1,21 +1,15 @@
-import styles from './Cart.module.css';
+import styles from './HhData.module.css';
 import { HhDataProps } from './HhData.props';
 import cn from 'classnames';
+import { Cart } from '../Cart/Cart';
 
-export function HhData({
-    children,
-    color = 'white',
-    className,
-    ...props
-}: HhDataProps): JSX.Element {
+export function HhData({ count }: HhDataProps): JSX.Element {
     return (
-        <div
-            className={cn(className, {
-                [styles.blue]: color === 'blue',
-            })}
-            {...props}
-        >
-            {children}
+        <div className={styles.hh}>
+            <Cart className={styles.count}>
+                <div className={styles.title}>Всего вакансий</div>
+                <div className={styles.countValue}>{count}</div>
+            </Cart>
         </div>
     );
 }

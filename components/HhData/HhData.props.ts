@@ -1,7 +1,3 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import { IHhData } from '../../interfaces/page.interface';
 
-export interface HhDataProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    children: ReactNode;
-    color?: 'white' | 'blue';
-}
+export interface HhDataProps extends IHhData {}
