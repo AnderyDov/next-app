@@ -13,7 +13,7 @@ export interface IAdventage {
 export interface IHhData {
     _id: string;
     count: number;
-    juniorsalary: number;
+    juniorSalary: number;
     middleSalary: number;
     seniorSalary: number;
     updateAt: Date;

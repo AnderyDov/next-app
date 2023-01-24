@@ -1,8 +1,18 @@
-.white {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    background: var(--white);
+.hh {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
 }
-.blue {
-    background: #f9f8ff;
+.count {
+    padding: 20px;
+    text-align: center;
+}
+.salary {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    text-align: center;
+}
+.salary > div:not(:last-child) {
+    border-right: 1px solid var(--gray-light);
 }
