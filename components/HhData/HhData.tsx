@@ -2,6 +2,7 @@ import styles from './HhData.module.css';
 import { HhDataProps } from './HhData.props';
 import { Cart } from '../Cart/Cart';
 import Rate from './rate.svg';
+import { priceRu } from '../../helpers/helpers';
 
 export function HhData({
     count,
@@ -18,7 +19,9 @@ export function HhData({
             <Cart className={styles.salary}>
                 <div>
                     <div className={styles.title}>Начальный</div>
-                    <div className={styles.countValue}>{juniorSalary}</div>
+                    <div className={styles.countValue}>
+                        {priceRu(juniorSalary)}
+                    </div>
                     <div className={styles.rate}>
                         <Rate className={styles.filled} />
                         <Rate />
@@ -27,7 +30,9 @@ export function HhData({
                 </div>
                 <div>
                     <div className={styles.title}>Средний</div>
-                    <div className={styles.countValue}>{middleSalary}</div>
+                    <div className={styles.countValue}>
+                        {priceRu(middleSalary)}
+                    </div>
                     <div className={styles.rate}>
                         <Rate className={styles.filled} />
                         <Rate className={styles.filled} />
@@ -36,7 +41,9 @@ export function HhData({
                 </div>
                 <div>
                     <div className={styles.title}>Профессиональный</div>
-                    <div className={styles.countValue}>{seniorSalary}</div>
+                    <div className={styles.countValue}>
+                        {priceRu(seniorSalary)}
+                    </div>
                     <div className={styles.rate}>
                         <Rate className={styles.filled} />
                         <Rate className={styles.filled} />
