@@ -19,7 +19,7 @@ export interface IHhData {
     updateAt: Date;
 }
 export interface IPageModel {
-    tags: string;
+    tags: string[];
     _id: string;
     secondCategory: string;
     alias: string;
@@ -30,7 +30,7 @@ export interface IPageModel {
     metaTitle: string;
     metaDescripion: string;
     firstCatgory: TopLevelCategory;
-    advantages: IAdventage[];
+    advantages?: IAdventage[];
     createAt: Date;
     updateAt: Date;
     hh: IHhData;

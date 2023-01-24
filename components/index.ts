@@ -5,3 +5,4 @@ export * from './P/P';
 export * from './Rate/Rate';
 export * from './Cart/Cart';
 export * from './HhData/HhData';
+export * from './Advantages/Advantages';
