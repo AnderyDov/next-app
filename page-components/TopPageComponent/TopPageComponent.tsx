@@ -51,26 +51,27 @@ export function TopPageComponent({
             {firstCategory === TopLevelCategory.Courses && page && (
                 <HhData {...page.hh} />
             )}
-            {page.advantages && page.advantages.length > 0 && (
+            {page && page.advantages && page.advantages.length > 0 && (
                 <>
                     <Htag tag='h2'>Преимущества</Htag>
                     <Advantages advantages={page.advantages} />
                 </>
             )}
-            {page.seoText && (
+            {page && page.seoText && (
                 <div
                     className={styles.seo}
                     dangerouslySetInnerHTML={{ __html: page.seoText }}
                 />
             )}
             <Htag tag='h2'>Получаемые навыки</Htag>
-            {page.tags.map((el) => {
-                return (
-                    <Tag key={el} color='primary'>
-                        {el}
-                    </Tag>
-                );
-            })}
+            {page &&
+                page.tags.map((el) => {
+                    return (
+                        <Tag key={el} color='primary'>
+                            {el}
+                        </Tag>
+                    );
+                })}
         </div>
     );
 }
