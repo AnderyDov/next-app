@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Htag, Button, P, Rate } from '../components';
+import { Htag, Button, P, Rate, Input } from '../components';
 import { IMenu } from '../interfaces/menu.interface';
 import withLauout from '../layout/Layout';
 
@@ -20,7 +20,10 @@ function Home() {
                 Кнопка
             </Button>
             <P size='l'>paragraf example</P>
-            <Rate isEditadle={true} rate={rate} setRate={setRate} />
+            <div>
+                <Rate isEditadle={true} rate={rate} setRate={setRate} />
+            </div>
+            <Input placeholder='текст' />
         </>
     );
 }
