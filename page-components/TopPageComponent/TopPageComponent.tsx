@@ -1,4 +1,4 @@
-import { Advantages, HhData, Htag, P } from '../../components';
+import { Advantages, HhData, Htag } from '../../components';
 import { Tag } from '../../components';
 import { TopPageComponent } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css';
@@ -40,7 +40,10 @@ export function TopPageComponent({
                 </>
             )}
             {page.seoText && (
-                <div dangerouslySetInnerHTML={{ __html: page.seoText }} />
+                <div
+                    className={styles.seo}
+                    dangerouslySetInnerHTML={{ __html: page.seoText }}
+                />
             )}
             <Htag tag='h2'>Получаемые навыки</Htag>
             {page.tags.map((el) => {
