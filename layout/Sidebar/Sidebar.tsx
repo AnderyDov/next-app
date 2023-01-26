@@ -4,6 +4,7 @@ import styles from './Sidebar.module.css';
 import { SidebarProps } from './Sidebar.props';
 import Logo from '../logo.svg';
 import cn from 'classnames';
+import { Search } from '../../components';
 
 export default function Sidebar({ className, ...props }: SidebarProps) {
     return (
@@ -11,9 +12,7 @@ export default function Sidebar({ className, ...props }: SidebarProps) {
             <Link href='/'>
                 <Logo className={styles.logo} />
             </Link>
-            <Link href='/search'>
-                <h2>Search</h2>
-            </Link>
+            <Search />
             <Menu />
         </div>
     );
