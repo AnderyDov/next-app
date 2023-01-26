@@ -4,10 +4,11 @@ import { Cart } from '../Cart/Cart';
 import { Rate } from '../Rate/Rate';
 import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
-import { priceRu } from '../../helpers/helpers';
+import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import cn from 'classnames';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -16,7 +17,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
         <>
             <Cart className={styles.product}>
                 <div className={styles.logo}>
-                    <img
+                    <Image
                         src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
                         alt={product.title}
                         width={70}
@@ -49,7 +50,12 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                 <div className={styles.priceTitle}>цена</div>
                 <div className={styles.creditTitle}>кредит</div>
                 <div className={styles.reviewCount}>
-                    {product.reviewCount} отзывов
+                    {product.reviewCount}{' '}
+                    {declOfNum(product.reviewCount, [
+                        'отзыв',
+                        'отзыва',
+                        'отзывов',
+                    ])}
                 </div>
                 <div className={styles.hr}>
                     <Divider className={styles.hr} />
