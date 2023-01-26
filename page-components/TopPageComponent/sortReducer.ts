@@ -1,17 +1,17 @@
 import { IProductModel } from '../../interfaces/propduct.interface';
-import { SortEnum } from './Sort.props';
+import { SortEnum } from '../../components/Sort/Sort.props';
 
-export type SortAtion = { type: SortEnum.Rating } | { type: SortEnum.Price };
+export type SortAction = { type: SortEnum.Rating } | { type: SortEnum.Price };
 
 export interface SortReducerState {
     sort: SortEnum;
     products: IProductModel[];
 }
 
-export function sortReducer(
+export const sortReducer = (
     state: SortReducerState,
-    action: SortAtion,
-): SortReducerState {
+    action: SortAction,
+): SortReducerState => {
     switch (action.type) {
         case SortEnum.Rating:
             return {
@@ -28,6 +28,6 @@ export function sortReducer(
                 ),
             };
         default:
-            throw new Error('неверный тип сортировки');
+            throw new Error('Неверный тип сортировки');
     }
-}
+};

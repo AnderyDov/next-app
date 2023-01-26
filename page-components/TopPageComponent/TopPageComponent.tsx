@@ -5,7 +5,7 @@ import styles from './TopPageComponent.module.css';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { useReducer } from 'react';
-import { sortReducer } from '../../components/Sort/sortReducer';
+import { sortReducer } from './sortReducer';
 
 export function TopPageComponent({
     firstCategory,
@@ -14,11 +14,12 @@ export function TopPageComponent({
 }: TopPageComponent): JSX.Element {
     const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(
         sortReducer,
-        {
-            products,
-            sort: SortEnum.Rating,
-        },
+        { products, sort: SortEnum.Rating },
     );
+
+    const setSort = (sort: SortEnum) => {
+        dispatchSort({ type: sort });
+    };
 
     return (
         <div className={styles.wrapper}>
@@ -29,12 +30,7 @@ export function TopPageComponent({
                         {products.length}
                     </Tag>
                 )}
-                <Sort
-                    sort={sort}
-                    setSort={(sort: SortEnum) => {
-                        dispatchSort({ type: sort });
-                    }}
-                />
+                <Sort sort={sort} setSort={setSort} />
             </div>
             <div>
                 {sortedProducts &&
