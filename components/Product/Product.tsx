@@ -9,6 +9,7 @@ import { Divider } from '../Divider/Divider';
 import cn from 'classnames';
 import { useState } from 'react';
 import Image from 'next/image';
+import { Review } from '../Review/Review';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -100,6 +101,23 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                         Читать отзывы
                     </Button>
                 </div>
+            </Cart>
+            <Cart
+                color='blue'
+                className={cn(styles.review, {
+                    [styles.opend]: isReviewOpened,
+                    [styles.closed]: !isReviewOpened,
+                })}
+            >
+                {product.reviews.map((el) => {
+                    return (
+                        <div key={el._id}>
+                            {' '}
+                            <Review review={el} />
+                            <Divider />
+                        </div>
+                    );
+                })}
             </Cart>
         </>
     );

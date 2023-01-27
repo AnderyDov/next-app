@@ -5,29 +5,29 @@ import cn from 'classnames';
 import Star from './star.svg';
 
 export function Rate({
-    isEditadle = false,
+    isEditable = false,
     rate = 3,
     setRate,
 }: RateProps): JSX.Element {
     const [localRate, setLocalRate] = useState<number>(0);
 
     function handlerEnter(i: number) {
-        if (isEditadle) {
+        if (isEditable) {
             setLocalRate(i + 1);
         }
     }
     function handlerChange() {
-        if (setRate && isEditadle) {
+        if (setRate && isEditable) {
             setRate(localRate);
         }
     }
     function handlerLeave() {
-        if (isEditadle) {
+        if (isEditable) {
             setLocalRate(rate);
         }
     }
     function handlerChangeKeyboard(e: KeyboardEvent<SVGAElement>, i: number) {
-        if (setRate && isEditadle && e.code === 'Space') {
+        if (setRate && isEditable && e.code === 'Space') {
             setRate(i + 1);
         }
     }
@@ -42,7 +42,7 @@ export function Rate({
                 return (
                     <span
                         className={cn(styles.star, {
-                            [styles.isEditadle]: isEditadle,
+                            [styles.isEditable]: isEditable,
                             [styles.primary]: i < localRate,
                         })}
                         key={el}
@@ -51,7 +51,7 @@ export function Rate({
                         onMouseLeave={handlerLeave}
                     >
                         <Star
-                            tabIndex={isEditadle ? 0 : -1}
+                            tabIndex={isEditable ? 0 : -1}
                             onKeyDown={(e: KeyboardEvent<SVGAElement>) =>
                                 handlerChangeKeyboard(e, i)
                             }
