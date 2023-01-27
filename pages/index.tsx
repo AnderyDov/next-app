@@ -21,7 +21,7 @@ function Home() {
                 Кнопка
             </Button>
             <P size='l'>paragraf example</P>
-            <Rate isEditadle={true} rate={rate} setRate={setRate} />
+            <Rate isEditable={true} rate={rate} setRate={setRate} />
             <br />
             <Input placeholder='текст' />
             <br />
