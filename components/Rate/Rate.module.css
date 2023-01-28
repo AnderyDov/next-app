@@ -1,14 +1,32 @@
 .rating {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
 }
+
 .star {
-    padding-left: 5px;
     display: inline-flex;
+
+    padding-left: 5px;
 }
+
 .isEditable {
     cursor: pointer;
 }
+
 .primary svg {
     fill: var(--primary);
+}
+
+.error svg {
+    stroke: var(--red);
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+
+    color: var(--red);
 }

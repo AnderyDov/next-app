@@ -92,11 +92,12 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                 </div>
                 <Divider className={cn(styles.hr, styles.hr2)} />
                 <div className={styles.actions}>
-                    <Button appearens='primary'>Узнать подробнее</Button>
+                    <Button appearens='primary' className={styles.reviewButton}>
+                        Узнать подробнее
+                    </Button>
                     <Button
                         appearens='ghost'
                         arrow={isReviewOpened ? 'down' : 'right'}
-                        className={styles.reviewButton}
                         onClick={() => setIsReviewOpened(!isReviewOpened)}
                     >
                         Читать отзывы

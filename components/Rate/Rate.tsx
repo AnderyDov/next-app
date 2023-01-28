@@ -7,7 +7,7 @@ import { ForwardedRef, forwardRef } from 'react';
 
 export const Rate = forwardRef(
     (
-        { isEditable = false, rating = 3, setRating }: RateProps,
+        { isEditable = false, rating = 0, setRating, error }: RateProps,
         ref: ForwardedRef<HTMLDivElement>,
     ): JSX.Element => {
         const [localRate, setLocalRate] = useState<number>(0);
@@ -48,6 +48,7 @@ export const Rate = forwardRef(
                             className={cn(styles.star, {
                                 [styles.isEditable]: isEditable,
                                 [styles.primary]: i < localRate,
+                                [styles.error]: error,
                             })}
                             key={el}
                             onMouseEnter={() => handlerEnter(i)}
@@ -63,6 +64,9 @@ export const Rate = forwardRef(
                         </span>
                     );
                 })}
+                {error && (
+                    <span className={styles.errorMessage}>{error.message}</span>
+                )}
             </div>
         );
     },

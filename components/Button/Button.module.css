@@ -3,36 +3,42 @@
 
     box-sizing: border-box;
     padding: 10px;
+
     cursor: pointer;
-    text-align: center;
-    border: none;
     transition: all 0.2s ease;
+    text-align: center;
+
+    border: none;
 
     border-radius: 5px;
 
     font-size: 14px;
 }
+
 .button:active {
     transform: scale(0.95);
 }
 
 .primary {
-    background: var(--primary);
     color: var(--white);
+    background: var(--primary);
 }
+
 .primary:hover {
     background: var(--primary-hover);
 }
 
 .ghost {
     color: var(--black);
-    background: none;
     border: 1px solid var(--gray-light);
+    background: none;
 }
+
 .ghost:hover {
     color: var(--white);
     background: var(--primary);
 }
+
 .arrow {
     display: inline-block;
 
@@ -40,6 +46,6 @@
 }
 
 .down {
-    transform: rotate(90deg);
     transition: all 0.2s;
+    transform: rotate(90deg);
 }
