@@ -10,6 +10,7 @@ import cn from 'classnames';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -39,7 +40,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     <span className={styles.month}>мес</span>
                 </div>
                 <div className={styles.rate}>
-                    <Rate rate={product.reviewAvg ?? product.initialRating} />
+                    <Rate rating={product.reviewAvg ?? product.initialRating} />
                 </div>
                 <div className={styles.tags}>
                     {product.tags.map((el) => (
@@ -109,10 +110,11 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     [styles.closed]: !isReviewOpened,
                 })}
             >
+                <ReviewForm productId={product._id} />
+                <Divider />
                 {product.reviews.map((el) => {
                     return (
                         <div key={el._id}>
-                            {' '}
                             <Review review={el} />
                             <Divider />
                         </div>

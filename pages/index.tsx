@@ -7,7 +7,7 @@ import { IMenu } from '../interfaces/menu.interface';
 import withLauout from '../layout/Layout';
 
 function Home() {
-    const [rate, setRate] = useState<number>(4);
+    const [rate, setRating] = useState<number>(4);
 
     return (
         <>
@@ -21,7 +21,7 @@ function Home() {
                 Кнопка
             </Button>
             <P size='l'>paragraf example</P>
-            <Rate isEditable={true} rate={rate} setRate={setRate} />
+            <Rate isEditable={true} rating={rate} setRating={setRating} />
             <br />
             <Input placeholder='текст' />
             <br />

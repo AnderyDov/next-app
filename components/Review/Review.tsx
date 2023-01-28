@@ -24,7 +24,7 @@ export function Review({
                 {format(new Date(createdAt), 'dd MMMM yyyy', { locale: ru })}
             </div>
             <div className={styles.rating}>
-                <Rate rate={rating} />
+                <Rate rating={rating} />
             </div>
             <div className={styles.description}>{description}</div>
         </div>

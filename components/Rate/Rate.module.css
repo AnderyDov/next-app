@@ -1,4 +1,4 @@
-.rate {
+.rating {
     display: inline-flex;
     align-items: center;
 }
@@ -6,7 +6,7 @@
     padding-left: 5px;
     display: inline-flex;
 }
-.isEditadle {
+.isEditable {
     cursor: pointer;
 }
 .primary svg {

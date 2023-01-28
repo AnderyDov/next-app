@@ -7,10 +7,7 @@ import { Rate } from '../Rate/Rate';
 import { Textarea } from '../Textarea/Textarea';
 import { Button } from '../Button/Button';
 import { useForm, Controller } from 'react-hook-form';
-import { IReviewForm, IReviewSentResponse } from './ReviewForm.interface';
-import axios from 'axios';
-import { API } from '../../helpers/api';
-import { useState } from 'react';
+import { IReviewForm } from './ReviewForm.interface';
 
 export const ReviewForm = ({
     productId,
@@ -24,15 +21,31 @@ export const ReviewForm = ({
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div className={cn(styles.reviewForm, className)} {...props}>
-                <Input placeholder='имя' />
-                <Input placeholder='имя' className={styles.title} />
+                <Input {...register('name')} placeholder='имя' />
+                <Input
+                    {...register('title')}
+                    placeholder='Заголовок отзыва'
+                    className={styles.title}
+                />
                 <div className={styles.rating}>
                     <span>оценка: </span>
-                    <Rate rate={0} />
+                    <Controller
+                        control={control}
+                        name='rating'
+                        render={({ field }) => (
+                            <Rate
+                                ref={field.ref}
+                                isEditable
+                                rating={field.value}
+                                setRating={field.onChange}
+                            />
+                        )}
+                    />
                 </div>
                 <Textarea
+                    {...register('description')}
                     placeholder='текст отзыва'
                     className={styles.description}
                 />
