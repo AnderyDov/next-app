@@ -14,7 +14,7 @@ export function ButtonIcon({
         <button
             className={cn(styles.button, className, {
                 [styles.primary]: appearens === 'primary',
-                [styles.ghost]: appearens === 'white',
+                [styles.white]: appearens === 'white',
             })}
             {...props}
         >
