@@ -1,0 +1,37 @@
+.button {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.primary {
+    background: var(--primary);
+}
+
+.primary svg {
+    fill: var(--white);
+}
+
+.primary:hover {
+    background: var(--primary-hover);
+}
+
+.white {
+    background: var(--white);
+}
+
+.white svg {
+    fill: var(--primary);
+}
+
+.white:hover {
+    background: var(--primary);
+}
