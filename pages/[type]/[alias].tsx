@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
+import { API } from '../../helpers/api';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { IMenu } from '../../interfaces/menu.interface';
 import { IPageModel, TopLevelCategory } from '../../interfaces/page.interface';
@@ -56,22 +57,19 @@ export const getStaticProps: GetStaticProps<CourcesProps> = async ({
     }
 
     try {
-        const { data: menu } = await axios.post<IMenu[]>(
-            process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-            { firstCategory: firstCategoryItem.id },
-        );
+        const { data: menu } = await axios.post<IMenu[]>(API.topPage.find, {
+            firstCategory: firstCategoryItem.id,
+        });
         if (menu.length === 0) {
             return { notFound: true };
         }
 
         const { data: page } = await axios.get<IPageModel>(
-            process.env.NEXT_PUBLIC_DOMAIN +
-                '/api/top-page/byAlias/' +
-                params.alias,
+            API.topPage.byAlias + params.alias,
         );
 
         const { data: products } = await axios.post<IProductModel[]>(
-            process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find',
+            API.product.find,
             {
                 category: page.category,
                 limit: 10,

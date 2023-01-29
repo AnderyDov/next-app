@@ -7,13 +7,23 @@ import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import cn from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
+import Link from 'next/link';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+    const reviewRef = useRef<HTMLDivElement>(null);
+
+    function scrollToReview() {
+        setIsReviewOpened(true);
+        reviewRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+    }
 
     return (
         <>
@@ -26,6 +36,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                         height={70}
                     />
                 </div>
+
                 <div className={styles.title}>{product.title}</div>
                 <div className={styles.price}>
                     {priceRu(product.price)}
@@ -52,12 +63,18 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                 <div className={styles.priceTitle}>цена</div>
                 <div className={styles.creditTitle}>кредит</div>
                 <div className={styles.reviewCount}>
-                    {product.reviewCount}{' '}
-                    {declOfNum(product.reviewCount, [
-                        'отзыв',
-                        'отзыва',
-                        'отзывов',
-                    ])}
+                    <Link
+                        href='#ref'
+                        className={styles.rateTitle}
+                        onClick={scrollToReview}
+                    >
+                        {product.reviewCount}
+                        {declOfNum(product.reviewCount, [
+                            'отзыв',
+                            'отзыва',
+                            'отзывов',
+                        ])}
+                    </Link>
                 </div>
                 <div className={styles.hr}>
                     <Divider className={styles.hr} />
@@ -110,6 +127,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     [styles.opend]: isReviewOpened,
                     [styles.closed]: !isReviewOpened,
                 })}
+                ref={reviewRef}
             >
                 <ReviewForm productId={product._id} />
                 <Divider />

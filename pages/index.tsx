@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Htag, Button, P, Rate, Input } from '../components';
 import { Textarea } from '../components/Textarea/Textarea';
+import { API } from '../helpers/api';
 import { IMenu } from '../interfaces/menu.interface';
 import withLauout from '../layout/Layout';
 
@@ -35,12 +36,9 @@ export default withLauout(Home);
 export const getStaticProps = async () => {
     const firstCategory = 0;
 
-    const { data: menu } = await axios.post<IMenu[]>(
-        process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-        {
-            firstCategory,
-        },
-    );
+    const { data: menu } = await axios.post<IMenu[]>(API.topPage.find, {
+        firstCategory,
+    });
 
     return {
         props: {
