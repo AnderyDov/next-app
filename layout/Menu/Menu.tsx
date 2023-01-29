@@ -6,10 +6,34 @@ import cn from 'classnames';
 import { useContext } from 'react';
 import { AppContext } from '../../context/app.context';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export default function Menu(): JSX.Element {
     const { menu, setMenu, firstCategory } = useContext(AppContext);
     const router = useRouter();
+
+    const variants = {
+        visible: {
+            marginBottom: 20,
+            transition: {
+                when: 'afterChildren',
+                staggerChildren: 0.04,
+            },
+        },
+        hidden: { marginBottom: 0 },
+    };
+
+    const variantsChildren = {
+        visible: {
+            opacity: 1,
+            height: 'auto',
+            transition: {
+                ease: 'easeOut',
+                duration: 0.1,
+            },
+        },
+        hidden: { opacity: 0, height: 0 },
+    };
 
     function openThridLevel(second: string) {
         setMenu &&
@@ -89,27 +113,32 @@ export default function Menu(): JSX.Element {
         opened: boolean | undefined,
     ): JSX.Element {
         return (
-            <div
-                className={cn(styles.thridLevelBlock, {
-                    [styles.thridLevelBlockOpen]: opened,
-                })}
+            <motion.div
+                initial={opened ? 'visible' : 'hidden'}
+                animate={opened ? 'visible' : 'hidden'}
+                variants={variants}
+                className={cn(styles.thridLevelBlock)}
             >
                 {pages.map((thridLevelItem) => {
                     return (
-                        <Link
-                            href={`/${route}/${thridLevelItem.alias}`}
+                        <motion.div
                             key={thridLevelItem._id}
-                            className={cn(styles.thirdLevel, {
-                                [styles.thirdLevelActive]:
-                                    router.asPath.split('/')[2] ===
-                                    thridLevelItem.alias,
-                            })}
+                            variants={variantsChildren}
                         >
-                            {thridLevelItem.category}
-                        </Link>
+                            <Link
+                                href={`/${route}/${thridLevelItem.alias}`}
+                                className={cn(styles.thirdLevel, {
+                                    [styles.thirdLevelActive]:
+                                        router.asPath.split('/')[2] ===
+                                        thridLevelItem.alias,
+                                })}
+                            >
+                                {thridLevelItem.category}
+                            </Link>
+                        </motion.div>
                     );
                 })}
-            </div>
+            </motion.div>
         );
     }
 

@@ -23,7 +23,7 @@
     margin-left: 12px;
     padding-left: 32px;
 
-    border-left: 1px solid #DFDFDF;
+    border-left: 1px solid #dfdfdf;
 }
 
 .secondLevel {
@@ -39,21 +39,14 @@
     font-weight: 300;
     line-height: 16px;
 }
-
-.secondLevelBlockOpened:last-child {
-    margin-bottom: 20px;
+.secondLevel:hover {
+    color: var(--primary);
 }
 
 .thridLevelBlock {
-    display: none;
-
     padding-left: 20px;
-
-    border-left: 1px solid #DFDFDF;
-}
-
-.thridLevelBlockOpen {
-    display: block;
+    overflow: hidden;
+    border-left: 1px solid #dfdfdf;
 }
 
 .thirdLevel {
