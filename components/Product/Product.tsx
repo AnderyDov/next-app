@@ -24,6 +24,21 @@ export const Product = motion(
                 useState<boolean>(false);
             const reviewRef = useRef<HTMLDivElement>(null);
 
+            const variants = {
+                visibility: {
+                    opacity: 1,
+                    height: 'auto',
+                    transition: {
+                        ease: 'easeOut',
+                        duration: 0.4,
+                    },
+                },
+                hidden: {
+                    opacity: 0,
+                    height: 0,
+                },
+            };
+
             function scrollToReview() {
                 setIsReviewOpened(true);
                 reviewRef.current?.scrollIntoView({
@@ -159,25 +174,25 @@ export const Product = motion(
                             </Button>
                         </div>
                     </Cart>
-                    <Cart
-                        color='blue'
-                        className={cn(styles.review, {
-                            [styles.opend]: isReviewOpened,
-                            [styles.closed]: !isReviewOpened,
-                        })}
-                        ref={reviewRef}
+                    <motion.div
+                        animate={isReviewOpened ? 'visibility' : 'hidden'}
+                        initial='hidden'
+                        variants={variants}
+                        className={styles.review}
                     >
-                        <ReviewForm productId={product._id} />
-                        <Divider />
-                        {product.reviews.map((el) => {
-                            return (
-                                <div key={el._id}>
-                                    <Review review={el} />
-                                    <Divider />
-                                </div>
-                            );
-                        })}
-                    </Cart>
+                        <Cart color='blue' ref={reviewRef}>
+                            <ReviewForm productId={product._id} />
+                            <Divider />
+                            {product.reviews.map((el) => {
+                                return (
+                                    <div key={el._id}>
+                                        <Review review={el} />
+                                        <Divider />
+                                    </div>
+                                );
+                            })}
+                        </Cart>
+                    </motion.div>
                 </div>
             );
         },
