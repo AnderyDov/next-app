@@ -26,6 +26,7 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-hook-form": "^7.42.1",
+        "react-yandex-metrika": "^2.6.0",
         "stylelint": "^14.16.1",
         "stylelint-config-standard": "^29.0.0",
         "stylelint-order": "^5.0.0",

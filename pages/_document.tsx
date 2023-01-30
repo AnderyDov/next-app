@@ -5,6 +5,7 @@ export default function Document(): JSX.Element {
         <Html lang='ru'>
             <Head>
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
+                {/* <link rel='preconnect' href='https://mc.yandex.ru' /> */}
                 <link
                     rel='preconnect'
                     href='https://fonts.gstatic.com'
