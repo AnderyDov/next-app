@@ -8,14 +8,23 @@ import { IPageModel, TopLevelCategory } from '../../interfaces/page.interface';
 import { IProductModel } from '../../interfaces/propduct.interface';
 import withLayout from '../../layout/Layout';
 import { TopPageComponent } from '../../page-components';
+import Head from 'next/head';
 
 function Cources({ page, products, firstCategory }: CourcesProps) {
     return (
-        <TopPageComponent
-            page={page}
-            products={products}
-            firstCategory={firstCategory}
-        />
+        <>
+            <Head>
+                <title>{page?.metaTitle}</title>
+                <meta name='description' content={page?.metaDescripion} />
+                <meta property='og:title' content={page?.metaTitle} />
+                <meta property='og:descripton' content={page?.metaDescripion} />
+            </Head>
+            <TopPageComponent
+                page={page}
+                products={products}
+                firstCategory={firstCategory}
+            />
+        </>
     );
 }
 

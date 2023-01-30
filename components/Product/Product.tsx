@@ -11,7 +11,6 @@ import { forwardRef, ForwardedRef, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export const Product = motion(
@@ -97,7 +96,7 @@ export const Product = motion(
                         <div className={styles.priceTitle}>цена</div>
                         <div className={styles.creditTitle}>кредит</div>
                         <div className={styles.reviewCount}>
-                            <Link
+                            <a
                                 href='#ref'
                                 className={styles.rateTitle}
                                 onClick={scrollToReview}
@@ -108,7 +107,7 @@ export const Product = motion(
                                     'отзыва',
                                     'отзывов',
                                 ])}
-                            </Link>
+                            </a>
                         </div>
                         <div className={styles.hr}>
                             <Divider className={styles.hr} />
