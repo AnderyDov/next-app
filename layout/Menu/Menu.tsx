@@ -3,7 +3,7 @@ import { IFirstLevelMenu } from '../../interfaces/menu.interface';
 import Link from 'next/link';
 import styles from './Menu.module.css';
 import cn from 'classnames';
-import { useContext } from 'react';
+import { useContext, KeyboardEvent } from 'react';
 import { AppContext } from '../../context/app.context';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -47,6 +47,13 @@ export default function Menu(): JSX.Element {
             );
     }
 
+    function openThridLevelKey(e, second: string) {
+        if (e.code === 'Enter' || e.code === 'Space') {
+            e.preventDefault();
+            openThridLevel(second);
+        }
+    }
+
     function buildFirstLevel(): JSX.Element {
         return (
             <div>
@@ -86,6 +93,13 @@ export default function Menu(): JSX.Element {
                     return (
                         <div key={secondLevelItem._id.secondCategory}>
                             <div
+                                tabIndex={0}
+                                onKeyDown={(e: KeyboardEvent) =>
+                                    openThridLevelKey(
+                                        e,
+                                        secondLevelItem._id.secondCategory,
+                                    )
+                                }
                                 className={styles.secondLevel}
                                 onClick={() =>
                                     openThridLevel(
@@ -126,6 +140,7 @@ export default function Menu(): JSX.Element {
                             variants={variantsChildren}
                         >
                             <Link
+                                tabIndex={opened ? 0 : -1}
                                 href={`/${route}/${thridLevelItem.alias}`}
                                 className={cn(styles.thirdLevel, {
                                     [styles.thirdLevelActive]:
