@@ -45,6 +45,7 @@ export const Product = motion(
                     behavior: 'smooth',
                     block: 'start',
                 });
+                reviewRef.current?.focus();
             }
 
             return (
@@ -180,7 +181,11 @@ export const Product = motion(
                         variants={variants}
                         className={styles.review}
                     >
-                        <Cart color='blue' ref={reviewRef}>
+                        <Cart
+                            color='blue'
+                            ref={reviewRef}
+                            tabIndex={isReviewOpened ? 0 : -1}
+                        >
                             <ReviewForm productId={product._id} />
                             <Divider />
                             {product.reviews.map((el) => {
