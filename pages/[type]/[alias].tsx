@@ -9,7 +9,7 @@ import { IProductModel } from '../../interfaces/propduct.interface';
 import withLayout from '../../layout/Layout';
 import { TopPageComponent } from '../../page-components';
 import Head from 'next/head';
-import { Error404 } from '../404';
+import Error404 from '../404';
 
 function Cources({ page, products, firstCategory }: CourcesProps) {
     if (!page || !products) {

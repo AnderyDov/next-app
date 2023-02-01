@@ -2,7 +2,7 @@ import withLayout from '../../layout/Layout';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
 import Head from 'next/head';
-import { Error404 } from '../404';
+import Error404 from '../404';
 
 function Type() {
     const router = useRouter();
