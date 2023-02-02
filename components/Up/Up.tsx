@@ -25,7 +25,12 @@ export function Up() {
             animate={controls}
             initial={{ opacity: 0 }}
         >
-            <ButtonIcon appearens='primary' icon='up' onClick={scrollTo} />
+            <ButtonIcon
+                aria-label='кнопка вверх'
+                appearens='primary'
+                icon='up'
+                onClick={scrollTo}
+            />
         </motion.div>
     );
 }

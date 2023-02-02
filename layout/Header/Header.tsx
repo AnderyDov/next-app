@@ -33,7 +33,7 @@ export default function Header({ className, ...props }: HeaderProps) {
 
     return (
         <header className={cn(className, styles.header)} {...props}>
-            <Link href='/'>
+            <Link href='/' aria-label='переход на главную страницу'>
                 <Logo />
             </Link>
             <ButtonIcon

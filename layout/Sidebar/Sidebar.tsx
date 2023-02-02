@@ -9,7 +9,7 @@ import { Search } from '../../components';
 export default function Sidebar({ className, ...props }: SidebarProps) {
     return (
         <div className={cn(className, styles.sidebar, {})} {...props}>
-            <Link href='/'>
+            <Link href='/' aria-label='переход на главную страницу'>
                 <Logo className={styles.logo} />
             </Link>
             <Search />

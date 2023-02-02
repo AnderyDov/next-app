@@ -12,7 +12,7 @@ export function Sort({
     return (
         <div className={cn(styles.sort, className)} {...props}>
             <button
-                aria-selected={sort === SortEnum.Rating}
+                aria-labelledby='sort rating'
                 onClick={() => setSort(SortEnum.Rating)}
                 className={cn({
                     [styles.active]: sort === SortEnum.Rating,
@@ -22,11 +22,11 @@ export function Sort({
                 По рейтингу
             </button>
             <button
+                aria-labelledby='sort price'
                 onClick={() => setSort(SortEnum.Price)}
                 className={cn({
                     [styles.active]: sort === SortEnum.Price,
                 })}
-                aria-selected={sort === SortEnum.Price}
             >
                 <SortIcon className={styles.sortIcon} />
                 По&nbsp;цене
