@@ -1,5 +1,5 @@
 FROM node:18-alpine
-WORKDIR /opt/app
+WORKDIR /
 ADD package.json package.json
 RUN yarn install  --production
 ADD . .
