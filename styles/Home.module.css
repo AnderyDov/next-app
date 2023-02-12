@@ -10,12 +10,34 @@
     overflow: hidden;
 }
 .wow {
-    transition: all 2s ease-in-out;
     width: 100%;
+    animation: an 50s ease-in-out infinite;
 }
-.wow:hover {
-    translate: 20% 10%;
-    scale: 1.5;
+@keyframes an {
+    0% {
+        translate: 0% 0%;
+        scale: 1;
+    }
+    20% {
+        translate: 10% 5%;
+        scale: 1.2;
+    }
+    40% {
+        translate: 20% 10%;
+        scale: 1.5;
+    }
+    60% {
+        translate: 10% 5%;
+        scale: 1.2;
+    }
+    80% {
+        translate: -10% -5%;
+        scale: 1.5;
+    }
+    100% {
+        translate: 0% 0%;
+        scale: 1;
+    }
 }
 @media (max-width: 500px) {
     .home {
