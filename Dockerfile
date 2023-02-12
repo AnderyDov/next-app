@@ -6,4 +6,4 @@ ADD . .
 ENV NODE_ENV production
 RUN yarn build
 CMD ["yarn", "start" ]
-EXPOSE 80
+EXPOSE 3000
