@@ -16,15 +16,13 @@ import i8 from '../image/8.jpg';
 function Home() {
     return (
         <div className={styles.home}>
-            {/* <div className={styles.image}>
+            <div className={styles.image}>
                 <Image
                     src={i1}
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -34,9 +32,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -46,9 +42,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -58,9 +52,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -70,9 +62,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -82,9 +72,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -94,9 +82,7 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
             </div>
@@ -106,12 +92,10 @@ function Home() {
                     alt={'image'}
                     fill
                     priority
-                    sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+                    sizes='33vw'
                     className={styles.wow}
                 />
-            </div> */}
+            </div>
         </div>
     );
 }
