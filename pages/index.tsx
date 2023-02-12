@@ -16,7 +16,7 @@ import i8 from '../image/8.jpg';
 function Home() {
     return (
         <div className={styles.home}>
-            <div className={styles.image}>
+            {/* <div className={styles.image}>
                 <Image
                     src={i1}
                     alt={'image'}
@@ -111,7 +111,7 @@ function Home() {
               33vw'
                     className={styles.wow}
                 />
-            </div>
+            </div> */}
         </div>
     );
 }
