@@ -1,0 +1,23 @@
+.home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 6/4;
+    overflow: hidden;
+}
+.wow {
+    transition: all 2s ease-in-out;
+}
+.wow:hover {
+    translate: 20% 10%;
+    scale: 1.5;
+}
+@media (max-width: 500px) {
+    .home {
+        grid-template-columns: 1fr;
+    }
+}
